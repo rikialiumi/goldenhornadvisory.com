@@ -22,9 +22,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text-d
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5vw;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,152,74,0.15);transition:padding 0.3s;}
 
-/* ── NAV LOGO: gerçek PNG — navy arka plan navbar ile kaynaşır ── */
+/* ── NAV LOGO ── */
 .nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
-.nav-logo img{display:block;}
 
 .nav-right{display:flex;align-items:center;gap:1.5rem;}
 .nav-links{display:flex;gap:1.75rem;list-style:none;}
@@ -274,7 +273,9 @@ footer{background:#060F1B;padding:3rem 5vw 2rem;border-top:1px solid rgba(196,15
      ═══════════════════════════════════════════ -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="gha-logo.png" alt="Golden Horn Advisory" style="height:58px;width:auto;display:block;">
+    <img src="gha-logo.png"
+         alt="Golden Horn Advisory"
+         style="height:62px;width:auto;display:block;mix-blend-mode:screen;">
   </a>
 
   <div class="nav-right">
@@ -647,7 +648,7 @@ footer{background:#060F1B;padding:3rem 5vw 2rem;border-top:1px solid rgba(196,15
   <p class="section-intro" id="k-cnt-intro">Book a free 30-minute discovery call or send us a project brief. We respond within 24 hours.</p>
   <div class="cnt-grid">
     <div class="cnt-info">
-      <div><div class="cnt-lbl" id="k-cl-email">Email</div><div class="cnt-val"><a href="mailto:info@goldenhornadvisory.com" style="color:inherit;text-decoration:none;">info@goldenhornadvisory.com</a></div></div>
+      <div><div class="cnt-lbl" id="k-cl-email">Email</div><div class="cnt-val"><a href="/cdn-cgi/l/email-protection#90f9fef6ffd0f7fffcf4f5fef8ffe2fef1f4e6f9e3ffe2e9bef3fffd" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="0960676f66496e66656d6c6761667b67686d7f607a667b70276a6664">[email&#160;protected]</span></a></div></div>
       <div><div class="cnt-lbl" id="k-cl-loc">Based In</div><div class="cnt-val" id="k-cv-loc">Istanbul, Turkey</div></div>
       <div><div class="cnt-lbl" id="k-cl-resp">Response Time</div><div class="cnt-val" id="k-cv-resp">Within 24 hours</div></div>
       <div><div class="cnt-lbl" id="k-cl-lang">Languages</div><div class="cnt-val">English · Türkçe</div></div>
@@ -726,7 +727,7 @@ footer{background:#060F1B;padding:3rem 5vw 2rem;border-top:1px solid rgba(196,15
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ═══════════════════════════════════════════════════════════════
 // TRANSLATION SYSTEM — Tüm elementler ID bazlı, sağlam ve hatasız
 // ═══════════════════════════════════════════════════════════════
@@ -1006,15 +1007,4 @@ const obs = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.svc-card, .proc-step, .sec-item, .blog-card, .hl-item').forEach(el => {
   el.style.opacity = '0';
-  el.style.transform = 'translateY(16px)';
-  obs.observe(el);
-});
-
-// Nav küçülme efekti
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('nav');
-  if (nav) nav.style.padding = window.scrollY > 60 ? '0.75rem 5vw' : '1.2rem 5vw';
-});
-</script>
-</body>
-</html>
+  el.style.transform = 'translate
