@@ -3,243 +3,559 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reports — Golden Horn Advisory</title>
-<meta name="description" content="Free and premium trade intelligence reports on Turkey-Europe trade. Download our Sourcing Textiles from Turkey 2026 guide.">
+<title>Intelligence Reports — Golden Horn Advisory</title>
+<meta name="description" content="Data-driven trade intelligence reports for the Turkey–Europe corridor. Market briefings from $500. Instant download. Verified, actionable research.">
 <link rel="icon" type="image/png" href="gha-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-:root{--navy:#0A1628;--navy-mid:#112040;--gold:#C4984A;--gold-light:#D4AD6A;--cream:#F7F2E8;--white:#FDFAF5;--text-dark:#0A1628;--text-mid:#1E2D42;--text-muted:#4A5A6A;--border:rgba(196,152,74,0.2);}
+:root{
+  --navy:#0A1628;--navy-mid:#112040;
+  --gold:#C4984A;--gold-light:#D4AD6A;
+  --cream:#F7F2E8;--white:#FDFAF5;
+  --text-dark:#0A1628;--text-mid:#1E2D42;--text-muted:#4A5A6A;
+  --border:rgba(196,152,74,0.2);
+}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text-dark);overflow-x:hidden;font-weight:400;-webkit-font-smoothing:antialiased;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5vw;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,152,74,0.15);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5vw;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,152,74,0.3);transition:padding 0.3s;}
 .nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
-.nav-logo img{display:block;height:52px;width:auto;}
-.nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none;}
+.nav-logo img{display:block;height:48px;width:auto;transition:height 0.3s ease;}
+.nav-brand{font-family:'Cormorant Garant',serif;font-size:1.4rem;font-weight:600;color:#C4984A;margin-left:0.85rem;letter-spacing:0.02em;white-space:nowrap;text-shadow:0 0 20px rgba(196,152,74,0.3);}
+@media(max-width:520px){.nav-brand{display:none;}}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-links{display:flex;gap:1.75rem;list-style:none;}
 .nav-links a{color:rgba(253,250,245,0.8);text-decoration:none;font-size:0.75rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
 .nav-links a:hover{color:var(--gold);}
+.nav-links a.active{color:var(--gold);}
 .nav-cta{border:1px solid var(--gold)!important;color:var(--gold)!important;padding:0.45rem 1.1rem;border-radius:2px;transition:background 0.2s,color 0.2s!important;}
 .nav-cta:hover{background:var(--gold)!important;color:var(--navy)!important;}
-@media(max-width:760px){.nav-links{display:none;}}
+.lang-toggle{display:flex;align-items:center;border:1px solid rgba(196,152,74,0.35);border-radius:2px;overflow:hidden;flex-shrink:0;}
+.lang-btn{background:transparent;border:none;color:rgba(253,250,245,0.5);font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:400;letter-spacing:0.1em;padding:0.32rem 0.65rem;cursor:pointer;transition:background 0.2s,color 0.2s;}
+.lang-btn.active{background:var(--gold);color:var(--navy);font-weight:500;}
+.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.menu-toggle span{display:block;width:20px;height:1px;background:var(--gold);}
+@media(max-width:960px){.nav-links{display:none;}.menu-toggle{display:flex;}}
 
-/* PAGE HEADER */
-.page-header{min-height:52vh;background:var(--navy);display:flex;align-items:flex-end;padding:9rem 5vw 5rem;position:relative;overflow:hidden;}
-.page-header svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
-.header-content{position:relative;z-index:2;max-width:700px;}
+/* HERO */
+#rpt-hero{background:var(--navy);padding:9rem 5vw 5rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(196,152,74,0.15);}
+#rpt-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(196,152,74,0.09) 0%,transparent 60%);pointer-events:none;}
+.rpt-hero-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.6;}
+.rpt-hero-content{position:relative;z-index:2;max-width:720px;}
+.rpt-badge{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.65rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.rpt-badge::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.rpt-hero-title{font-family:'Cormorant Garant',serif;font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:500;line-height:1.05;color:var(--white);margin-bottom:1.25rem;}
+.rpt-hero-sub{font-size:0.97rem;font-weight:400;line-height:1.8;color:rgba(253,250,245,0.72);max-width:560px;margin-bottom:2.5rem;}
+.rpt-stats{display:flex;gap:2.5rem;padding-top:1.75rem;border-top:1px solid rgba(196,152,74,0.18);flex-wrap:wrap;}
+.rpt-stat{display:flex;align-items:center;gap:0.55rem;}
+.rpt-stat-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.rpt-stat-text{font-size:0.78rem;font-weight:400;color:rgba(253,250,245,0.58);letter-spacing:0.04em;}
+.rpt-stat-text strong{color:var(--gold-light);font-weight:500;}
+
+/* SHARED */
 .section-label{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.63rem;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
 .section-label::before{content:'';width:20px;height:1px;background:var(--gold);display:block;}
-.page-header h1{font-family:'Cormorant Garant',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:500;color:var(--white);line-height:1.08;margin-bottom:1rem;}
-.page-header p{font-size:0.92rem;color:rgba(253,250,245,0.65);line-height:1.75;max-width:520px;}
+.section-title{font-family:'Cormorant Garant',serif;font-size:clamp(1.9rem,4vw,2.9rem);font-weight:500;line-height:1.12;color:var(--text-dark);margin-bottom:1rem;}
+.gold-div{width:40px;height:1px;background:var(--gold);margin:1.25rem 0 2.25rem;}
+.tag{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.55rem;border:1px solid var(--border);color:var(--gold);border-radius:1px;background:rgba(196,152,74,0.05);}
 
-/* FEATURED REPORT */
-#featured{padding:6rem 5vw;background:var(--cream);}
-.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:start;}
-.feat-label{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
-.feat-label::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;display:block;}
-.feat-title{font-family:'Cormorant Garant',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:500;color:var(--navy);line-height:1.12;margin-bottom:1rem;}
-.feat-meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
-.meta-item{display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--text-muted);}
-.meta-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;}
-.feat-desc{font-size:0.9rem;line-height:1.85;color:var(--text-mid);margin-bottom:2rem;}
-.feat-covers{margin-bottom:2.5rem;}
-.feat-covers h4{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem;}
-.feat-covers ul{list-style:none;display:flex;flex-direction:column;gap:0.45rem;}
-.feat-covers li{font-size:0.85rem;color:var(--text-mid);display:flex;align-items:flex-start;gap:0.55rem;line-height:1.5;}
-.feat-covers li::before{content:'—';color:var(--gold);font-size:0.72rem;flex-shrink:0;margin-top:1px;}
-.free-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(196,152,74,0.12);border:1px solid var(--border);color:var(--gold);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:2px;margin-bottom:2rem;}
+/* REPORTS GRID */
+#reports-list{padding:5rem 5vw;}
+.reports-header{margin-bottom:3rem;}
+.reports-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(10,22,40,0.07);}
+@media(max-width:860px){.reports-grid{grid-template-columns:1fr;}}
 
-/* DOWNLOAD FORM */
-.download-box{background:var(--navy);padding:2.5rem 2rem;}
-.download-box h3{font-family:'Cormorant Garant',serif;font-size:1.4rem;font-weight:500;color:var(--white);margin-bottom:0.5rem;}
-.download-box p{font-size:0.82rem;color:rgba(253,250,245,0.6);line-height:1.7;margin-bottom:2rem;}
-.dl-form{display:flex;flex-direction:column;gap:1rem;}
-.f-grp{display:flex;flex-direction:column;gap:0.4rem;}
-.f-grp label{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(253,250,245,0.45);font-weight:400;}
-.f-grp input{background:rgba(255,255,255,0.07);border:1px solid rgba(196,152,74,0.25);color:var(--white);padding:0.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none;border-radius:2px;transition:border-color 0.2s,background 0.2s;width:100%;}
-.f-grp input::placeholder{color:rgba(253,250,245,0.25);}
-.f-grp input:focus{border-color:var(--gold);background:rgba(255,255,255,0.1);}
-.dl-submit{background:var(--gold);color:var(--navy);border:none;padding:1rem 2rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:background 0.2s,transform 0.2s;width:100%;}
-.dl-submit:hover{background:var(--gold-light);transform:translateY(-1px);}
-.dl-note{font-size:0.72rem;color:rgba(253,250,245,0.3);text-align:center;margin-top:0.25rem;}
-.success-msg{display:none;text-align:center;padding:1.5rem;background:rgba(58,107,74,0.2);border:1px solid rgba(58,107,74,0.4);border-radius:2px;}
-.success-msg p{color:rgba(253,250,245,0.8);font-size:0.85rem;line-height:1.6;}
-.success-msg strong{color:var(--gold-light);}
-@media(max-width:820px){.feat-grid{grid-template-columns:1fr;}}
+/* REPORT CARD */
+.rpt-card{background:var(--white);padding:2.5rem 2.25rem;display:flex;flex-direction:column;transition:background 0.25s ease,transform 0.25s ease;}
+.rpt-card:hover{background:var(--cream);transform:translateY(-2px);}
+.rpt-card.coming-soon{background:var(--cream);opacity:0.88;}
+.rpt-card.coming-soon:hover{background:var(--cream);transform:none;}
+.rpt-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem;gap:0.75rem;flex-wrap:wrap;}
+.rpt-type-tag{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);background:rgba(10,22,40,0.07);padding:0.22rem 0.6rem;border-radius:1px;font-weight:500;white-space:nowrap;}
+.rpt-badge-soon{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);background:var(--gold-light);padding:0.22rem 0.65rem;border-radius:1px;font-weight:500;white-space:nowrap;}
+.rpt-badge-live{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);background:var(--navy);padding:0.22rem 0.65rem;border-radius:1px;font-weight:500;white-space:nowrap;}
+.rpt-card-title{font-family:'Cormorant Garant',serif;font-size:1.35rem;font-weight:500;color:var(--navy);line-height:1.22;margin-bottom:0.85rem;}
+.rpt-sectors{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1rem;}
+.rpt-desc{font-size:0.85rem;font-weight:400;line-height:1.8;color:var(--text-mid);margin-bottom:1.5rem;flex:1;}
+.rpt-card-footer{border-top:1px solid rgba(10,22,40,0.08);padding-top:1.5rem;margin-top:auto;}
+.rpt-price-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.rpt-price{font-family:'Cormorant Garant',serif;font-size:2rem;font-weight:500;color:var(--navy);line-height:1;}
+.rpt-price span{font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:400;color:var(--text-muted);margin-left:0.3rem;letter-spacing:0.04em;}
+.rpt-btn-group{display:flex;gap:0.65rem;flex-wrap:wrap;}
+.btn-buy{display:inline-block;background:var(--gold);color:var(--navy);text-decoration:none;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:0.65rem 1.4rem;border-radius:2px;transition:background 0.2s,transform 0.15s;white-space:nowrap;}
+.btn-buy:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-preview{display:inline-block;border:1px solid rgba(10,22,40,0.2);color:var(--text-mid);text-decoration:none;font-size:0.72rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;padding:0.65rem 1.1rem;border-radius:2px;transition:border-color 0.2s,color 0.2s;white-space:nowrap;}
+.btn-preview:hover{border-color:var(--gold);color:var(--gold);}
+.rpt-soon-expected{font-size:0.75rem;font-weight:400;color:var(--text-muted);font-style:italic;display:flex;align-items:center;}
 
-/* COMING SOON REPORTS */
-#coming-soon{padding:6rem 5vw;background:var(--white);}
-.cs-header{margin-bottom:3rem;}
-.cs-section-label{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.63rem;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
-.cs-section-label::before{content:'';width:20px;height:1px;background:var(--gold);display:block;}
-.cs-title{font-family:'Cormorant Garant',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:500;color:var(--text-dark);line-height:1.12;}
-.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(10,22,40,0.06);}
-.cs-card{background:var(--white);padding:2rem 1.75rem;}
-.cs-cat{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.4rem;}
-.cs-cat::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;}
-.cs-card-title{font-family:'Cormorant Garant',serif;font-size:1.12rem;font-weight:500;color:var(--navy);line-height:1.3;margin-bottom:0.75rem;}
-.cs-date{font-size:0.75rem;color:var(--text-muted);display:inline-flex;align-items:center;gap:0.4rem;border:1px solid rgba(10,22,40,0.1);padding:0.2rem 0.6rem;border-radius:2px;}
-@media(max-width:760px){.cs-grid{grid-template-columns:1fr;}}
-
-/* CTA STRIP */
-.cta-strip{background:var(--navy);padding:5rem 5vw;text-align:center;}
-.cta-strip h2{font-family:'Cormorant Garant',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:500;color:var(--white);margin-bottom:1rem;}
-.cta-strip p{font-size:0.9rem;color:rgba(253,250,245,0.65);margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.75;}
-.btn-primary{display:inline-block;background:var(--gold);color:var(--navy);text-decoration:none;font-size:0.76rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:1rem 2.2rem;border-radius:2px;transition:background 0.2s,transform 0.2s;}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+/* CUSTOM REQUEST */
+#custom-request{background:var(--navy);padding:5rem 5vw;}
+.custom-inner{max-width:680px;margin:0 auto;text-align:center;}
+.custom-inner .section-label{justify-content:center;}
+.custom-inner .section-label::before{display:none;}
+.custom-title{font-family:'Cormorant Garant',serif;font-size:clamp(2rem,4vw,3rem);font-weight:500;color:var(--white);line-height:1.1;margin-bottom:1rem;}
+.custom-sub{font-size:0.92rem;font-weight:400;line-height:1.82;color:rgba(253,250,245,0.65);margin-bottom:0.6rem;}
+.custom-price{font-size:0.82rem;font-weight:400;color:var(--gold);margin-bottom:2.5rem;letter-spacing:0.04em;}
+.btn-custom{display:inline-block;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:0.76rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:0.95rem 2.4rem;border-radius:2px;transition:background 0.2s,color 0.2s;}
+.btn-custom:hover{background:var(--gold);color:var(--navy);}
+.custom-features{display:flex;justify-content:center;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;}
+.custom-feat{display:flex;align-items:flex-start;gap:0.65rem;text-align:left;max-width:180px;}
+.custom-feat-line{width:2px;min-height:36px;background:var(--gold);flex-shrink:0;margin-top:3px;opacity:0.6;}
+.custom-feat-text{font-size:0.8rem;font-weight:400;line-height:1.6;color:rgba(253,250,245,0.58);}
+.custom-feat-text strong{display:block;color:var(--gold-light);font-weight:500;font-size:0.82rem;margin-bottom:0.1rem;}
 
 /* FOOTER */
-footer{background:#060F1B;padding:2.5rem 5vw;border-top:1px solid rgba(196,152,74,0.12);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+footer{background:#060F1B;padding:3rem 5vw 2rem;border-top:1px solid rgba(196,152,74,0.12);}
+.ft-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2.5rem;gap:2rem;flex-wrap:wrap;}
+.ft-logo span:first-child{font-family:'Cormorant Garant',serif;font-size:1.35rem;font-weight:500;color:var(--white);display:block;letter-spacing:0.04em;}
+.ft-logo span:last-child{font-size:0.58rem;font-weight:300;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);display:block;margin-top:2px;}
+.ft-tag{font-size:0.78rem;font-weight:400;color:rgba(253,250,245,0.35);margin-top:0.75rem;max-width:240px;line-height:1.65;}
+.ft-links{display:flex;gap:3.5rem;}
+.ft-col h5{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:1rem;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+.ft-col a{font-size:0.78rem;font-weight:400;color:rgba(253,250,245,0.42);text-decoration:none;transition:color 0.2s;}
+.ft-col a:hover{color:var(--gold-light);}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid rgba(253,250,245,0.06);flex-wrap:wrap;gap:1rem;}
 .ft-copy{font-size:0.7rem;color:rgba(253,250,245,0.22);}
-.ft-links-row{display:flex;gap:2rem;}
-.ft-links-row a{font-size:0.7rem;color:rgba(253,250,245,0.35);text-decoration:none;transition:color 0.2s;}
-.ft-links-row a:hover{color:var(--gold);}
+.ft-li{display:flex;gap:2rem;}
+.ft-li a{font-size:0.7rem;color:rgba(253,250,245,0.22);text-decoration:none;transition:color 0.2s;}
+.ft-li a:hover{color:rgba(253,250,245,0.5);}
+@media(max-width:700px){.ft-links{flex-direction:column;gap:2rem;}}
+
+/* COOKIE */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:999;background:rgba(10,22,40,0.98);border-top:1px solid rgba(196,152,74,0.2);padding:1.25rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;backdrop-filter:blur(12px);}
+.cookie-text{font-size:0.78rem;color:rgba(253,250,245,0.6);line-height:1.6;max-width:680px;}
+.cookie-text a{color:var(--gold);text-decoration:none;}
+.cookie-btns{display:flex;gap:0.75rem;flex-shrink:0;}
+.cookie-accept{background:var(--gold);color:var(--navy);border:none;padding:0.55rem 1.25rem;font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:2px;}
+.cookie-decline{background:transparent;color:rgba(253,250,245,0.4);border:1px solid rgba(253,250,245,0.15);padding:0.55rem 1.25rem;font-family:'DM Sans',sans-serif;font-size:0.75rem;cursor:pointer;border-radius:2px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.fu{animation:fadeUp 0.65s ease forwards;opacity:0;}
+.d1{animation-delay:0.08s;}.d2{animation-delay:0.2s;}.d3{animation-delay:0.32s;}.d4{animation-delay:0.44s;}
 </style>
 </head>
 <body>
 
+<div class="cookie-banner" id="cookie-banner">
+  <p class="cookie-text" id="rpt-cookie-text">We use cookies to improve your experience. By continuing, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+  <div class="cookie-btns">
+    <button class="cookie-accept" id="rpt-cookie-accept" onclick="acceptCookie()">Accept</button>
+    <button class="cookie-decline" id="rpt-cookie-decline" onclick="declineCookie()">Decline</button>
+  </div>
+</div>
+
 <nav>
   <a href="index.html" class="nav-logo">
     <img src="gha-logo.png" alt="Golden Horn Advisory">
+    <span class="nav-brand" id="k-nav-brand">Golden Horn Advisory</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html#services">Services</a></li>
-    <li><a href="index.html#sectors">Sectors</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#services" id="k-nav-svc">Services</a></li>
+      <li><a href="index.html#sectors" id="k-nav-sec">Sectors</a></li>
+      <li><a href="index.html#about" id="k-nav-about">About</a></li>
+      <li><a href="index.html#blog" id="k-nav-blog">Insights</a></li>
+      <li><a href="reports.html" class="active" id="k-nav-reports">Reports</a></li>
+      <li><a href="index.html#contact" class="nav-cta" id="k-nav-cta">Get in Touch</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
-<div class="page-header">
-  <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <line x1="0" y1="150" x2="1400" y2="150" stroke="rgba(196,152,74,0.05)" stroke-width="1"/>
-    <line x1="0" y1="350" x2="1400" y2="350" stroke="rgba(196,152,74,0.05)" stroke-width="1"/>
-    <line x1="350" y1="0" x2="350" y2="500" stroke="rgba(196,152,74,0.04)" stroke-width="1"/>
-    <line x1="1050" y1="0" x2="1050" y2="500" stroke="rgba(196,152,74,0.04)" stroke-width="1"/>
-    <circle cx="700" cy="250" r="220" stroke="rgba(196,152,74,0.04)" stroke-width="1" fill="none"/>
+<!-- HERO -->
+<section id="rpt-hero">
+  <svg class="rpt-hero-bg" viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="150" x2="1400" y2="150" stroke="rgba(196,152,74,0.06)" stroke-width="1"/>
+    <line x1="0" y1="350" x2="1400" y2="350" stroke="rgba(196,152,74,0.06)" stroke-width="1"/>
+    <line x1="280" y1="0" x2="280" y2="500" stroke="rgba(196,152,74,0.05)" stroke-width="1"/>
+    <line x1="700" y1="0" x2="700" y2="500" stroke="rgba(196,152,74,0.05)" stroke-width="1"/>
+    <line x1="1120" y1="0" x2="1120" y2="500" stroke="rgba(196,152,74,0.05)" stroke-width="1"/>
+    <circle cx="1100" cy="250" r="220" stroke="rgba(196,152,74,0.05)" stroke-width="1" fill="none"/>
+    <circle cx="1100" cy="250" r="140" stroke="rgba(196,152,74,0.04)" stroke-width="1" fill="none"/>
   </svg>
-  <div class="header-content">
-    <div class="section-label">Intelligence Library</div>
-    <h1>Trade Reports &amp; Briefings</h1>
-    <p>Sector-specific market intelligence for SMEs navigating the Turkey–Europe trade corridor. Free and premium reports.</p>
-  </div>
-</div>
-
-<section id="featured">
-  <div class="feat-grid">
-    <div>
-      <div class="feat-label">Featured Report · April 2026</div>
-      <h2 class="feat-title">Sourcing Textiles from Turkey: A Strategic Guide for European Buyers 2026</h2>
-      <div class="feat-meta">
-        <span class="meta-item"><span class="meta-dot"></span>10 pages</span>
-        <span class="meta-item"><span class="meta-dot"></span>Textiles &amp; Apparel</span>
-        <span class="meta-item"><span class="meta-dot"></span>English</span>
-      </div>
-      <div class="free-badge">✓ Free Download</div>
-      <p class="feat-desc">A comprehensive guide for European brands and retailers looking to source garments, fabric, and apparel from Turkey. Covers the full sourcing process from supplier identification to shipment — with real pricing benchmarks and quality standards.</p>
-      <div class="feat-covers">
-        <h4>What This Report Covers</h4>
-        <ul>
-          <li>Why Turkey for European textile sourcing — competitive advantages vs. Asia</li>
-          <li>Key production hubs: Istanbul, Bursa, Denizli, Gaziantep</li>
-          <li>Supplier types: OEM, ODM, and private label producers</li>
-          <li>2026 pricing benchmarks by product category</li>
-          <li>Lead times, MOQs, and quality control standards</li>
-          <li>EU-Turkey Customs Union: tariff-free access and documentation</li>
-          <li>Logistics: sea freight, road, and multimodal options</li>
-          <li>Common pitfalls and how to avoid them</li>
-          <li>Next steps: how to start your Turkey sourcing programme</li>
-        </ul>
-      </div>
+  <div class="rpt-hero-content">
+    <div class="rpt-badge fu d1" id="k-rpt-badge">Golden Horn Advisory</div>
+    <h1 class="rpt-hero-title fu d2" id="k-rpt-title">Intelligence Reports</h1>
+    <p class="rpt-hero-sub fu d3" id="k-rpt-sub">Data-driven research for SMEs navigating the Turkey&ndash;Europe trade corridor. Every report is verified, actionable, and priced for real business budgets.</p>
+    <div class="rpt-stats fu d4">
+      <div class="rpt-stat"><div class="rpt-stat-dot"></div><span class="rpt-stat-text" id="k-rpt-stat1"><strong>2</strong> Reports Available</span></div>
+      <div class="rpt-stat"><div class="rpt-stat-dot"></div><span class="rpt-stat-text" id="k-rpt-stat2">From <strong>$500</strong></span></div>
+      <div class="rpt-stat"><div class="rpt-stat-dot"></div><span class="rpt-stat-text" id="k-rpt-stat3"><strong>Instant</strong> Download</span></div>
     </div>
-    <div>
-      <div class="download-box">
-        <h3>Download Free Report</h3>
-        <p>Enter your name and email. We'll send the report directly to your inbox — no spam, no commitment.</p>
-        <form class="dl-form" id="dl-form" onsubmit="handleDownload(event)">
-          <div class="f-grp"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
-          <div class="f-grp"><label>Work Email</label><input type="email" name="email" placeholder="you@company.com" required></div>
-          <div class="f-grp"><label>Company (optional)</label><input type="text" name="company" placeholder="Your company"></div>
-          <input type="hidden" name="report" value="Sourcing Textiles from Turkey 2026">
-          <input type="hidden" name="_subject" value="Report Download Request — Sourcing Textiles from Turkey 2026">
-          <button type="submit" class="dl-submit" id="dl-btn">Send Me the Report →</button>
-          <p class="dl-note">Your data is handled in accordance with our <a href="privacy-policy.html" style="color:rgba(196,152,74,0.7);">Privacy Policy</a>.</p>
-        </form>
-        <div class="success-msg" id="success-msg">
-          <p><strong>Report request received.</strong><br>We'll send the Sourcing Textiles from Turkey 2026 report to your inbox within a few hours. Check your spam folder if it doesn't arrive.</p>
+  </div>
+</section>
+
+<!-- REPORTS LIST -->
+<section id="reports-list">
+  <div class="reports-header">
+    <div class="section-label" id="k-rpt-list-label">Available Reports</div>
+    <h2 class="section-title" id="k-rpt-list-title">Market Briefings &amp; Research</h2>
+    <div class="gold-div"></div>
+  </div>
+  <div class="reports-grid">
+
+    <!-- Report 1: CBAM -->
+    <div class="rpt-card">
+      <div class="rpt-card-top">
+        <span class="rpt-type-tag" id="k-r1-type">Market Briefing</span>
+        <span class="rpt-badge-live" id="k-r1-status">Available Now</span>
+      </div>
+      <h3 class="rpt-card-title" id="k-r1-title">CBAM &amp; EU Green Trade Compliance: A Practical Guide for Turkish Exporters 2026</h3>
+      <div class="rpt-sectors">
+        <span class="tag">Steel</span>
+        <span class="tag">Cement</span>
+        <span class="tag">Aluminium</span>
+        <span class="tag">Fertilisers</span>
+      </div>
+      <p class="rpt-desc" id="k-r1-desc">CBAM entered full force in January 2026. Turkish industrial exporters face &euro;138M in annual costs by 2027 &mdash; rising to &euro;2.5B by 2032. This guide explains what you must do now, with a step-by-step compliance roadmap and financial impact analysis.</p>
+      <div class="rpt-card-footer">
+        <div class="rpt-price-row">
+          <div class="rpt-price">$500<span id="k-r1-price-label">one-time</span></div>
+          <div class="rpt-btn-group">
+            <a href="#buy-cbam" class="btn-buy" id="k-r1-buy">Buy Report &rarr;</a>
+            <a href="#" class="btn-preview" id="k-r1-preview">Preview (Free)</a>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Report 2: Textiles -->
+    <div class="rpt-card">
+      <div class="rpt-card-top">
+        <span class="rpt-type-tag" id="k-r2-type">Market Briefing</span>
+        <span class="rpt-badge-live" id="k-r2-status">Available Now</span>
+      </div>
+      <h3 class="rpt-card-title" id="k-r2-title">Sourcing Textiles from Turkey: A Strategic Guide for European Buyers 2026</h3>
+      <div class="rpt-sectors">
+        <span class="tag">Textiles</span>
+        <span class="tag">Apparel</span>
+      </div>
+      <p class="rpt-desc" id="k-r2-desc">Turkey is Europe&rsquo;s second-largest textile supplier. This guide covers supplier selection, price benchmarks, lead times, quality standards, and logistics for European brands sourcing from Turkey.</p>
+      <div class="rpt-card-footer">
+        <div class="rpt-price-row">
+          <div class="rpt-price">$500<span id="k-r2-price-label">one-time</span></div>
+          <div class="rpt-btn-group">
+            <a href="#buy-textiles" class="btn-buy" id="k-r2-buy">Buy Report &rarr;</a>
+            <a href="#" class="btn-preview" id="k-r2-preview">Preview (Free)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Report 3: Building Materials (Coming Soon) -->
+    <div class="rpt-card coming-soon">
+      <div class="rpt-card-top">
+        <span class="rpt-type-tag" id="k-r3-type">Market Briefing</span>
+        <span class="rpt-badge-soon" id="k-r3-status">Coming Soon</span>
+      </div>
+      <h3 class="rpt-card-title" id="k-r3-title">Sourcing Building Materials from Turkey 2026: Ceramics, Marble &amp; Stone</h3>
+      <div class="rpt-sectors">
+        <span class="tag">Building Materials</span>
+      </div>
+      <p class="rpt-desc" id="k-r3-desc">Turkey is the third-largest ceramic tile producer in Europe and a global leader in marble exports. This guide will cover pricing benchmarks, CE marking requirements, key production regions, and sourcing logistics for European buyers.</p>
+      <div class="rpt-card-footer">
+        <div class="rpt-price-row">
+          <div class="rpt-price">$500<span id="k-r3-price-label">on release</span></div>
+          <div class="rpt-btn-group">
+            <span class="rpt-soon-expected" id="k-r3-expected">Expected Q2 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Report 4: EU Customs Reform (Coming Soon) -->
+    <div class="rpt-card coming-soon">
+      <div class="rpt-card-top">
+        <span class="rpt-type-tag" id="k-r4-type">Market Briefing</span>
+        <span class="rpt-badge-soon" id="k-r4-status">Coming Soon</span>
+      </div>
+      <h3 class="rpt-card-title" id="k-r4-title">EU Customs Reform 2026: Business Implications for Turkey Trade</h3>
+      <div class="rpt-sectors">
+        <span class="tag">Multi-Sector</span>
+        <span class="tag">Regulatory</span>
+      </div>
+      <p class="rpt-desc" id="k-r4-desc">The EU agreed a landmark customs overhaul in March 2026. This guide will translate the policy changes &mdash; new data hub, end of the &euro;150 exemption, Customs Union modernisation progress &mdash; into practical implications for Turkish exporters and European buyers.</p>
+      <div class="rpt-card-footer">
+        <div class="rpt-price-row">
+          <div class="rpt-price">$500<span id="k-r4-price-label">on release</span></div>
+          <div class="rpt-btn-group">
+            <span class="rpt-soon-expected" id="k-r4-expected">Expected Q3 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section id="coming-soon">
-  <div class="cs-header">
-    <div class="cs-section-label">Coming Soon</div>
-    <h2 class="cs-title">Upcoming Reports</h2>
-  </div>
-  <div class="cs-grid">
-    <div class="cs-card">
-      <div class="cs-cat">Market Briefing</div>
-      <div class="cs-card-title">Post-Brexit UK Market Access for Turkish Exporters</div>
-      <span class="cs-date">Q2 2026</span>
-    </div>
-    <div class="cs-card">
-      <div class="cs-cat">Sector Overview</div>
-      <div class="cs-card-title">Turkish Tile &amp; Ceramic Exports: Pricing and Channel Analysis</div>
-      <span class="cs-date">Q3 2026</span>
-    </div>
-    <div class="cs-card">
-      <div class="cs-cat">Compliance Guide</div>
-      <div class="cs-card-title">EU Food Import Requirements for Turkish Agri Exporters</div>
-      <span class="cs-date">Q3 2026</span>
+<!-- CUSTOM REQUEST -->
+<section id="custom-request">
+  <div class="custom-inner">
+    <div class="section-label" id="k-cust-label">Custom Reports</div>
+    <h2 class="custom-title" id="k-cust-title">Need a Report on a Specific Topic?</h2>
+    <p class="custom-sub" id="k-cust-sub">We write custom intelligence reports on any aspect of Turkey&ndash;Europe trade. Sector-specific pricing analysis, supplier landscape studies, regulatory deep-dives &mdash; tailored to your exact question.</p>
+    <p class="custom-price" id="k-cust-price">Custom reports from $800 &middot; Delivered in 7&ndash;10 business days</p>
+    <a href="index.html#contact" class="btn-custom" id="k-cust-btn">Request a Custom Report &rarr;</a>
+    <div class="custom-features">
+      <div class="custom-feat">
+        <div class="custom-feat-line"></div>
+        <div class="custom-feat-text"><strong id="k-cf1-title">Any Sector</strong><span id="k-cf1-text">Textiles, food, building materials, or any Turkey&ndash;EU trade topic</span></div>
+      </div>
+      <div class="custom-feat">
+        <div class="custom-feat-line"></div>
+        <div class="custom-feat-text"><strong id="k-cf2-title">Your Question</strong><span id="k-cf2-text">We scope the report around your specific business decision</span></div>
+      </div>
+      <div class="custom-feat">
+        <div class="custom-feat-line"></div>
+        <div class="custom-feat-text"><strong id="k-cf3-title">Fast Turnaround</strong><span id="k-cf3-text">7&ndash;10 business days from brief to delivery</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="cta-strip">
-  <h2>Need a Custom Report?</h2>
-  <p>We produce bespoke market intelligence reports on any Turkey-Europe trade topic — delivered in 5 to 14 business days from $500.</p>
-  <a href="index.html#contact" class="btn-primary">Request a Custom Report →</a>
-</div>
-
+<!-- FOOTER -->
 <footer>
-  <p class="ft-copy">© 2026 Golden Horn Advisory. Founded by Ali Umit Ozat.</p>
-  <div class="ft-links-row">
-    <a href="index.html">Home</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
+  <div class="ft-top">
+    <div>
+      <div class="ft-logo"><span>Golden Horn Advisory</span><span id="k-ft-sub">Turkey &middot; Europe Trade Consultancy</span></div>
+      <p class="ft-tag" id="k-ft-tag">Trade intelligence and market entry advisory for SMEs on the Turkey&ndash;Europe corridor.</p>
+    </div>
+    <div class="ft-links">
+      <div class="ft-col">
+        <h5 id="k-ftc1-h">Services</h5>
+        <ul>
+          <li><a href="index.html#services" id="k-ftc1-l1">Market Entry</a></li>
+          <li><a href="index.html#services" id="k-ftc1-l2">Trade Intelligence</a></li>
+          <li><a href="index.html#services" id="k-ftc1-l3">Supplier Sourcing</a></li>
+          <li><a href="index.html#pricing" id="k-ftc1-l4">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5 id="k-ftc2-h">Company</h5>
+        <ul>
+          <li><a href="index.html#about" id="k-ftc2-l1">About</a></li>
+          <li><a href="reports.html" id="k-ftc2-l2">Reports</a></li>
+          <li><a href="index.html#contact" id="k-ftc2-l3">Contact</a></li>
+          <li><a href="#" title="Coming Soon" id="k-ftc2-l4">LinkedIn (Coming Soon)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <p class="ft-copy" id="k-ft-copy">&copy; 2026 Golden Horn Advisory.</p>
+    <div class="ft-li">
+      <a href="privacy-policy.html" id="k-ft-privacy">Privacy Policy</a>
+      <a href="index.html#contact" id="k-ft-contact">Contact</a>
+    </div>
   </div>
 </footer>
 
 <script>
-function handleDownload(e){
-  e.preventDefault();
-  const btn=document.getElementById('dl-btn');
-  const form=e.target;
-  const data=new FormData(form);
-  btn.textContent='Sending...';
-  btn.disabled=true;
-  fetch('https://formspree.io/f/xzdkwbzg',{method:'POST',body:data,headers:{'Accept':'application/json'}})
-    .then(r=>{
-      if(r.ok){
-        form.style.display='none';
-        document.getElementById('success-msg').style.display='block';
-      } else {
-        btn.textContent='Error — please try again';
-        btn.style.background='#8B3A3A';
-        setTimeout(()=>{btn.textContent='Send Me the Report →';btn.style.background='';btn.disabled=false;},3000);
-      }
-    })
-    .catch(()=>{
-      btn.textContent='Error — please try again';
-      btn.style.background='#8B3A3A';
-      setTimeout(()=>{btn.textContent='Send Me the Report →';btn.style.background='';btn.disabled=false;},3000);
-    });
+const T = {
+  en: {
+    'k-nav-brand':'Golden Horn Advisory',
+    'k-nav-svc':'Services',
+    'k-nav-sec':'Sectors',
+    'k-nav-about':'About',
+    'k-nav-blog':'Insights',
+    'k-nav-reports':'Reports',
+    'k-nav-cta':'Get in Touch',
+    'k-rpt-badge':'Golden Horn Advisory',
+    'k-rpt-title':'Intelligence Reports',
+    'k-rpt-sub':'Data-driven research for SMEs navigating the Turkey\u2013Europe trade corridor. Every report is verified, actionable, and priced for real business budgets.',
+    'k-rpt-stat1':'<strong>2</strong> Reports Available',
+    'k-rpt-stat2':'From <strong>$500</strong>',
+    'k-rpt-stat3':'<strong>Instant</strong> Download',
+    'k-rpt-list-label':'Available Reports',
+    'k-rpt-list-title':'Market Briefings &amp; Research',
+    'k-r1-type':'Market Briefing',
+    'k-r1-status':'Available Now',
+    'k-r1-title':'CBAM &amp; EU Green Trade Compliance: A Practical Guide for Turkish Exporters 2026',
+    'k-r1-desc':'CBAM entered full force in January 2026. Turkish industrial exporters face \u20ac138M in annual costs by 2027 \u2014 rising to \u20ac2.5B by 2032. This guide explains what you must do now, with a step-by-step compliance roadmap and financial impact analysis.',
+    'k-r1-price-label':'one-time',
+    'k-r1-buy':'Buy Report \u2192',
+    'k-r1-preview':'Preview (Free)',
+    'k-r2-type':'Market Briefing',
+    'k-r2-status':'Available Now',
+    'k-r2-title':'Sourcing Textiles from Turkey: A Strategic Guide for European Buyers 2026',
+    'k-r2-desc':'Turkey is Europe\u2019s second-largest textile supplier. This guide covers supplier selection, price benchmarks, lead times, quality standards, and logistics for European brands sourcing from Turkey.',
+    'k-r2-price-label':'one-time',
+    'k-r2-buy':'Buy Report \u2192',
+    'k-r2-preview':'Preview (Free)',
+    'k-r3-type':'Market Briefing',
+    'k-r3-status':'Coming Soon',
+    'k-r3-title':'Sourcing Building Materials from Turkey 2026: Ceramics, Marble &amp; Stone',
+    'k-r3-desc':'Turkey is the third-largest ceramic tile producer in Europe and a global leader in marble exports. This guide will cover pricing benchmarks, CE marking requirements, key production regions, and sourcing logistics for European buyers.',
+    'k-r3-price-label':'on release',
+    'k-r3-expected':'Expected Q2 2026',
+    'k-r4-type':'Market Briefing',
+    'k-r4-status':'Coming Soon',
+    'k-r4-title':'EU Customs Reform 2026: Business Implications for Turkey Trade',
+    'k-r4-desc':'The EU agreed a landmark customs overhaul in March 2026. This guide will translate the policy changes \u2014 new data hub, end of the \u20ac150 exemption, Customs Union modernisation progress \u2014 into practical implications for Turkish exporters and European buyers.',
+    'k-r4-price-label':'on release',
+    'k-r4-expected':'Expected Q3 2026',
+    'k-cust-label':'Custom Reports',
+    'k-cust-title':'Need a Report on a Specific Topic?',
+    'k-cust-sub':'We write custom intelligence reports on any aspect of Turkey\u2013Europe trade. Sector-specific pricing analysis, supplier landscape studies, regulatory deep-dives \u2014 tailored to your exact question.',
+    'k-cust-price':'Custom reports from $800 \u00b7 Delivered in 7\u201310 business days',
+    'k-cust-btn':'Request a Custom Report \u2192',
+    'k-cf1-title':'Any Sector',
+    'k-cf1-text':'Textiles, food, building materials, or any Turkey\u2013EU trade topic',
+    'k-cf2-title':'Your Question',
+    'k-cf2-text':'We scope the report around your specific business decision',
+    'k-cf3-title':'Fast Turnaround',
+    'k-cf3-text':'7\u201310 business days from brief to delivery',
+    'k-ft-sub':'Turkey \u00b7 Europe Trade Consultancy',
+    'k-ft-tag':'Trade intelligence and market entry advisory for SMEs on the Turkey\u2013Europe corridor.',
+    'k-ftc1-h':'Services',
+    'k-ftc1-l1':'Market Entry',
+    'k-ftc1-l2':'Trade Intelligence',
+    'k-ftc1-l3':'Supplier Sourcing',
+    'k-ftc1-l4':'Pricing',
+    'k-ftc2-h':'Company',
+    'k-ftc2-l1':'About',
+    'k-ftc2-l2':'Reports',
+    'k-ftc2-l3':'Contact',
+    'k-ftc2-l4':'LinkedIn (Coming Soon)',
+    'k-ft-copy':'\u00a9 2026 Golden Horn Advisory.',
+    'k-ft-privacy':'Privacy Policy',
+    'k-ft-contact':'Contact'
+  },
+  tr: {
+    'k-nav-brand':'Golden Horn Advisory',
+    'k-nav-svc':'Hizmetler',
+    'k-nav-sec':'Sekt\u00f6rler',
+    'k-nav-about':'Hakk\u0131m\u0131zda',
+    'k-nav-blog':'G\u00f6r\u00fc\u015fler',
+    'k-nav-reports':'Raporlar',
+    'k-nav-cta':'Bize Ula\u015f\u0131n',
+    'k-rpt-badge':'Golden Horn Advisory',
+    'k-rpt-title':'Zeka Raporlar\u0131',
+    'k-rpt-sub':'T\u00fcrkiye\u2013Avrupa ticaret koridorunda faaliyet g\u00f6steren KOB\u0130\u2019ler i\u00e7in veri odakl\u0131 ara\u015ft\u0131rmalar. Her rapor do\u011frulanm\u0131\u015f, uygulanabilir ve ger\u00e7ek i\u015f b\u00fct\u00e7eleri i\u00e7in fiyatland\u0131r\u0131lm\u0131\u015ft\u0131r.',
+    'k-rpt-stat1':'<strong>2</strong> Rapor Mevcut',
+    'k-rpt-stat2':'<strong>500$</strong>\u2019dan Ba\u015flayan Fiyatlar',
+    'k-rpt-stat3':'<strong>An\u0131nda</strong> \u0130ndirme',
+    'k-rpt-list-label':'Mevcut Raporlar',
+    'k-rpt-list-title':'Piyasa \u00d6zetleri ve Ara\u015ft\u0131rmalar',
+    'k-r1-type':'Piyasa \u00d6zeti',
+    'k-r1-status':'Hemen Edinin',
+    'k-r1-title':'CBAM ve AB Ye\u015fil Ticaret Uyumu: T\u00fcrk \u0130hracat\u00e7\u0131lar i\u00e7in Pratik Rehber 2026',
+    'k-r1-desc':'CBAM Ocak 2026\u2019da tam olarak y\u00fcr\u00fcrl\u00fc\u011fe girdi. T\u00fcrk s\u0131nai ihracat\u00e7\u0131lar\u0131 2027\u2019ye kadar y\u0131ll\u0131k 138 milyon Euro maliyetle kar\u015f\u0131 kar\u015f\u0131ya \u2014 2032\u2019ye kadar bu rakam 2,5 milyar Euro\u2019ya \u00e7\u0131kabilir. Bu rehber ad\u0131m ad\u0131m uyum plan\u0131 ve finansal etki analiziyle ne yapman\u0131z gerekti\u011fini a\u00e7\u0131kl\u0131yor.',
+    'k-r1-price-label':'tek seferlik',
+    'k-r1-buy':'Raporu Sat\u0131n Al \u2192',
+    'k-r1-preview':'\u00d6nizleme (\u00dccretsiz)',
+    'k-r2-type':'Piyasa \u00d6zeti',
+    'k-r2-status':'Hemen Edinin',
+    'k-r2-title':'T\u00fcrkiye\u2019den Tekstil Tedariki: Avrupal\u0131 Al\u0131c\u0131lar i\u00e7in Stratejik Rehber 2026',
+    'k-r2-desc':'T\u00fcrkiye, Avrupa\u2019n\u0131n ikinci b\u00fcy\u00fck tekstil tedarik\u00e7isidir. Bu rehber T\u00fcrkiye\u2019den tedarik yapan Avrupal\u0131 markalar i\u00e7in tedarik\u00e7i se\u00e7imi, fiyat k\u0131yaslamalar\u0131, teslimat s\u00fcreleri, kalite standartlar\u0131 ve lojisti\u011fi kapsamaktad\u0131r.',
+    'k-r2-price-label':'tek seferlik',
+    'k-r2-buy':'Raporu Sat\u0131n Al \u2192',
+    'k-r2-preview':'\u00d6nizleme (\u00dccretsiz)',
+    'k-r3-type':'Piyasa \u00d6zeti',
+    'k-r3-status':'Yak\u0131nda',
+    'k-r3-title':'T\u00fcrkiye\u2019den Yap\u0131 Malzemeleri Tedariki 2026: Seramik, Mermer ve Ta\u015f',
+    'k-r3-desc':'T\u00fcrkiye, Avrupa\u2019n\u0131n \u00fc\u00e7\u00fcnc\u00fc b\u00fcy\u00fck seramik karo \u00fcreticisi ve mermer ihracat\u0131nda d\u00fcnya lideridir. Bu rehber fiyat k\u0131yaslamalar\u0131n\u0131, CE i\u015faretleme gerekliliklerini, \u00fcretim b\u00f6lgelerini ve lojistik detaylar\u0131 ele alacakt\u0131r.',
+    'k-r3-price-label':'yay\u0131nda',
+    'k-r3-expected':'Beklenen: \u00c72 2026',
+    'k-r4-type':'Piyasa \u00d6zeti',
+    'k-r4-status':'Yak\u0131nda',
+    'k-r4-title':'AB G\u00fcmr\u00fck Reform 2026: T\u00fcrkiye Ticareti \u0130\u00e7in \u0130\u015f D\u00fcnyas\u0131na Etkileri',
+    'k-r4-desc':'AB Mart 2026\u2019da k\u00f6kl\u00fc bir g\u00fcmr\u00fck reformunu kabul etti. Bu rehber politika de\u011fi\u015fikliklerini \u2014 yeni veri merkezi, 150 Euro muafiyetinin sona ermesi, G\u00fcmr\u00fck Birli\u011fi modernizasyonu \u2014 T\u00fcrk ihracat\u00e7\u0131lar ve Avrupal\u0131 al\u0131c\u0131lar i\u00e7in pratik \u00e7\u0131kar\u0131mlara d\u00f6n\u00fc\u015ft\u00fcrecektir.',
+    'k-r4-price-label':'yay\u0131nda',
+    'k-r4-expected':'Beklenen: \u00c73 2026',
+    'k-cust-label':'\u00d6zel Raporlar',
+    'k-cust-title':'Belirli Bir Konuda Rapor mu Gerekiyor?',
+    'k-cust-sub':'T\u00fcrkiye\u2013Avrupa ticaretinin herhangi bir y\u00f6n\u00fcne ili\u015fkin \u00f6zel istihbarat raporlar\u0131 yaz\u0131yoruz. Sekt\u00f6re \u00f6zel fiyat analizleri, tedarik\u00e7i g\u00f6r\u00fcn\u00fcm ara\u015ft\u0131rmalar\u0131, mevzuat derinlemesine incelemeleri \u2014 tam soruna g\u00f6re \u00f6zelle\u015ftirilmi\u015f.',
+    'k-cust-price':'\u00d6zel raporlar 800$\u2019dan ba\u015fl\u0131yor \u00b7 7\u201310 i\u015f g\u00fcn\u00fcnde teslim',
+    'k-cust-btn':'\u00d6zel Rapor Talep Edin \u2192',
+    'k-cf1-title':'Her Sekt\u00f6r',
+    'k-cf1-text':'Tekstil, g\u0131da, yap\u0131 malzemeleri veya herhangi bir T\u00fcrkiye-AB ticaret konusu',
+    'k-cf2-title':'Sorunuz',
+    'k-cf2-text':'Raporu sizin \u00f6zel i\u015f karar\u0131n\u0131z etraf\u0131nda \u015fekillendiriyoruz',
+    'k-cf3-title':'H\u0131zl\u0131 Teslim',
+    'k-cf3-text':'Brifingden teslimata 7\u201310 i\u015f g\u00fcn\u00fc',
+    'k-ft-sub':'T\u00fcrkiye \u00b7 Avrupa Ticaret Dan\u0131\u015fmanl\u0131\u011f\u0131',
+    'k-ft-tag':'T\u00fcrkiye\u2013Avrupa koridorundaki KOB\u0130\u2019ler i\u00e7in ticaret istihbarat\u0131 ve piyasaya giri\u015f dan\u0131\u015fmanl\u0131\u011f\u0131.',
+    'k-ftc1-h':'Hizmetler',
+    'k-ftc1-l1':'Piyasaya Giri\u015f',
+    'k-ftc1-l2':'Ticaret \u0130stihbarat\u0131',
+    'k-ftc1-l3':'Tedarik\u00e7i Bulma',
+    'k-ftc1-l4':'Fiyatland\u0131rma',
+    'k-ftc2-h':'\u015eirket',
+    'k-ftc2-l1':'Hakk\u0131m\u0131zda',
+    'k-ftc2-l2':'Raporlar',
+    'k-ftc2-l3':'\u0130leti\u015fim',
+    'k-ftc2-l4':'LinkedIn (Yak\u0131nda)',
+    'k-ft-copy':'\u00a9 2026 Golden Horn Advisory.',
+    'k-ft-privacy':'Gizlilik Politikas\u0131',
+    'k-ft-contact':'\u0130leti\u015fim'
+  }
+};
+
+let lang = 'en';
+function setLang(l) {
+  lang = l;
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  document.getElementById('btn-tr').classList.toggle('active', l === 'tr');
+  Object.keys(T[l]).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = T[l][id];
+  });
 }
+
+function acceptCookie() {
+  document.getElementById('cookie-banner').style.display = 'none';
+  try { localStorage.setItem('gha-cookie', '1'); } catch(e) {}
+}
+function declineCookie() {
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+window.addEventListener('load', () => {
+  try { if (localStorage.getItem('gha-cookie')) document.getElementById('cookie-banner').style.display = 'none'; } catch(e) {}
+});
+
+function toggleMenu() {
+  const nl = document.getElementById('nav-links');
+  if (nl.style.display === 'flex') { nl.style.display = ''; }
+  else { nl.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:62px;left:0;right:0;background:#0A1628;padding:2rem 5vw;gap:1.5rem;border-bottom:1px solid rgba(196,152,74,0.2);z-index:99;'; }
+}
+
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  const logoImg = document.querySelector('.nav-logo img');
+  if (window.scrollY > 60) {
+    if (nav) nav.style.padding = '0.65rem 5vw';
+    if (logoImg) logoImg.style.height = '38px';
+  } else {
+    if (nav) nav.style.padding = '1.2rem 5vw';
+    if (logoImg) logoImg.style.height = '48px';
+  }
+}, { passive: true });
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      e.target.style.transition = 'opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+document.querySelectorAll('.rpt-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(18px)';
+  obs.observe(el);
+});
 </script>
 </body>
 </html>
